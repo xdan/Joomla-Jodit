@@ -1,0 +1,26 @@
+{
+	"name" : "joomla-jodit",
+	"version" : "2.3.50",
+	"description" : "Jodit is awesome and usefully wysiwyg editor with filebrowser",
+	"main" : "jodit.php",
+	"scripts" : {
+		"github" : "git add --all  && git commit -m \"New version %npm_package_version%. Read more http://xdsoft.net/jodit/doc/index.html#%npm_package_version% \" && git tag %npm_package_version% && git push --tags origin HEAD:master"
+	},
+	"homepage" : "http://xdsoft.net/jodit/",
+	"keywords" : [
+		"wysiwyg",
+		"editor",
+		"joomla",
+		"rich",
+		"jodit"
+	],
+	"license" : "http://xdsoft.net/jodit/license.html",
+	"author" : "Chupurnov <chupurnov@gmail.com> (http://xdsoft.net/)",
+	"bugs" : {
+		"url" : "https://github.com/xdan/jodit/issues"
+	},
+	"repository" : {
+		"type" : "git",
+		"url" : "https://github.com/xdan/jodit.git"
+	}
+}

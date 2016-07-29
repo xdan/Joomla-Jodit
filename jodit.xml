@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * @copyright	Copyright (c) 2016 editors. All rights reserved.
+ * @license		http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ */
+-->
+<extension type="plugin" version="3.0" group="editors" method="upgrade">
+	<name>plg_editors_jodit</name>
+	<author></author>
+	<creationDate>July 2016</creationDate>
+	<copyright>Copyright (c) 2016 editors. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<version>2.3.50</version>
+	<description>
+	<![CDATA[
+		<p>Jodit Editor</p>
+	]]>
+	</description>
+
+	<files>
+		<filename plugin="jodit">jodit.php</filename>
+		<filename>index.html</filename>
+		<folder>assets</folder>
+	</files>
+
+	<languages>
+		<language tag="en-GB">en-GB.plg_editors_jodit.ini</language>
+		<language tag="en-GB">en-GB.plg_editors_jodit.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+                <field
+					name="content_css"
+					type="radio"
+					label="PLG_JODIT_FIELD_CSS_LABEL"
+					description="PLG_JODIT_FIELD_CSS_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					>
+					<option value="1">JON</option>
+					<option value="0">JOFF</option>
+				</field>
+
+				<field
+					name="content_css_custom"
+					type="text"
+					label="PLG_JODIT_FIELD_CUSTOM_CSS_LABEL"
+					description="PLG_JODIT_FIELD_CUSTOM_CSS_DESC"
+					size="30"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+    
+    <updateservers>
+		<server type="extension" priority="1" name="Jodit Editor">https://raw.githubusercontent.com/xdan/Joomla-Jodit/master/update.xml</server>
+	</updateservers>
+
+</extension>
