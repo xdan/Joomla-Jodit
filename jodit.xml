@@ -13,7 +13,7 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail></authorEmail>
 	<authorUrl></authorUrl>
-	<version>2.3.50</version>
+	<version>2.3.51</version>
 	<description>
 	<![CDATA[
 		<p>Jodit Editor</p>
@@ -23,7 +23,8 @@
 	<files>
 		<filename plugin="jodit">jodit.php</filename>
 		<filename>index.html</filename>
-		<folder>assets</folder>
+		<folder>jodit</folder>
+		<folder>jodit-connectors</folder>
 	</files>
 
 	<languages>

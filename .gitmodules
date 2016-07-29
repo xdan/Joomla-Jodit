@@ -1,3 +1,6 @@
-[submodule "joomla-jodit"]
-	path = joomla-jodit
-	url = https://github.com/xdan/joomla-jodit
+[submodule "jodit"]
+	path = jodit
+	url = https://github.com/xdan/jodit.git
+[submodule "jodit-connectors"]
+	path = jodit-connectors
+	url = https://github.com/xdan/jodit-connectors.git

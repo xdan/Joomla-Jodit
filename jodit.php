@@ -20,7 +20,7 @@ class plgEditorJodit extends JPlugin {
 	/**
 	 * Base path for editor files
 	 */
-	protected $_basePath = 'plugins/editors/jodit/assets';
+	protected $_basePath = 'plugins/editors/jodit/jodit';
 
 	/**
 	 * Load the language file on instantiation.
