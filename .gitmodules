@@ -1,0 +1,3 @@
+[submodule "joomla-jodit"]
+	path = joomla-jodit
+	url = https://github.com/xdan/joomla-jodit
