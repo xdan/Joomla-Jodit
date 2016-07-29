@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+    <update>
+        <name>Jodit Editor</name>
+        <description>Jodit Editor</description>
+        <element>jodit</element>
+        <type>plugin</type>
+        <version>1.1.9</version>
+        <infourl title="Jodit Editor v.1.1.9"></infourl>
+        <downloads>
+            <downloadurl type="upgrade" format="zip">https://github.com/xdan/Joomla-Jodit/archive/master.zip</downloadurl>
+        </downloads>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <targetplatform name="joomla" version=".*" />
+        <client>site</client>
+        <folder>editors</folder>
+    </update>
+</updates>
