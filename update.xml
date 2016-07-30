@@ -5,8 +5,8 @@
         <description>Jodit Editor</description>
         <element>jodit</element>
         <type>plugin</type>
-        <version>2.3.51</version>
-        <infourl title="Jodit Editor v.2.3.51"></infourl>
+        <version>2.3.52</version>
+        <infourl title="Jodit Editor v.2.3.52"></infourl>
         <downloads>
             <downloadurl type="upgrade" format="zip">https://github.com/xdan/Joomla-Jodit/archive/master.zip</downloadurl>
         </downloads>

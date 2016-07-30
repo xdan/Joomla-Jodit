@@ -1,10 +1,10 @@
 {
 	"name" : "joomla-jodit",
-	"version" : "2.3.51",
+	"version" : "2.3.52",
 	"description" : "Jodit is awesome and usefully wysiwyg editor with filebrowser",
 	"main" : "jodit.php",
 	"scripts" : {
-		"github" : "git add --all  && git commit -m \"New version %npm_package_version%. Read more http://xdsoft.net/jodit/doc/index.html#%npm_package_version% \" && git tag %npm_package_version% && git push --tags origin HEAD:master"
+		"github" : "git submodule update && git add --all  && git commit -m \"New version %npm_package_version%. Read more http://xdsoft.net/jodit/doc/index.html#%npm_package_version% \" && git tag %npm_package_version% && git push --tags origin HEAD:master"
 	},
 	"homepage" : "http://xdsoft.net/jodit/",
 	"keywords" : [
