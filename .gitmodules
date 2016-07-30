@@ -1,6 +1,0 @@
-[submodule "jodit"]
-	path = jodit
-	url = https://github.com/xdan/jodit.git
-[submodule "jodit-connectors"]
-	path = jodit-connectors
-	url = https://github.com/xdan/jodit-connectors.git
