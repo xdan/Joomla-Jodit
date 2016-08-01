@@ -164,19 +164,32 @@ class plgEditorJodit extends JPlugin {
 			return;
 		}
 
-		$content_css    = array();
+        $options = (object)array(
+            'iframe' => true,
+            'iframeBaseUrl' => JURI::root(),
+            'iframeCSSLinks' => array(),
+            'uploader' => array(
+                'url' => JURI::root() . 'plugins/editors/jodit/jodit-connectors/index.php?action=upload', 
+            ),
+            'filebrowser' => array(
+                'ajax' => array(
+                    'url' => JURI::root() . 'plugins/editors/jodit/jodit-connectors/index.php?action=upload', 
+                ),
+            ),
+        );
+
 		$templates_path = JPATH_SITE . '/templates';
 
 		// Loading of css file for 'styles' dropdown
 		if ($content_css_custom) {
-			// If URL, just pass it to $content_css
+			// If URL, just pass it to $iframeCSSLinks
 			if (strpos($content_css_custom, 'http') !== false) {
-				$content_css[] = $content_css_custom;
+				$options->iframeCSSLinks[] = $content_css_custom;
 			} else {
 			// If it is not a URL, assume it is a file name in the current template folder
-				$content_css[] = JUri::root(true) . '/templates/' . $template . '/css/' . $content_css_custom;
+				$options->iframeCSSLinks[] = JUri::root(true) . '/templates/' . $template . '/css/' . $content_css_custom;
 
-				// Issue warning notice if the file is not found (but pass name to $content_css anyway to avoid TinyMCE error
+				// Issue warning notice if the file is not found (but pass name to $iframeCSSLinks anyway to avoid TinyMCE error
 				if (!file_exists($templates_path . '/' . $template . '/css/' . $content_css_custom)) {
 					$msg = sprintf(JText::_('PLG_TINY_ERR_CUSTOMCSSFILENOTPRESENT'), $content_css_custom);
 					JLog::add($msg, JLog::WARNING, 'jerror');
@@ -192,10 +205,10 @@ class plgEditorJodit extends JPlugin {
 					if (!file_exists($templates_path . '/system/css/editor.css')) {
 						JLog::add(JText::_('PLG_TINY_ERR_EDITORCSSFILENOTPRESENT'), JLog::WARNING, 'jerror');
 					} else {
-						$content_css[] = JUri::root(true) . '/templates/system/css/editor.css';
+						$options->iframeCSSLinks[] = JUri::root(true) . '/templates/system/css/editor.css';
 					}
 				} else {
-					$content_css[] = JUri::root(true) . '/templates/' . $template . '/css/editor.css';
+					$options->iframeCSSLinks[] = JUri::root(true) . '/templates/' . $template . '/css/editor.css';
 				}
 			}
 		}
@@ -210,11 +223,7 @@ class plgEditorJodit extends JPlugin {
         '</textarea>';
 
         $script = '<script>
-            var jodit = new Jodit("#'.$id.'", {
-                ' . (count($content_css) ? 'iframeCSSLinks: '.json_encode($content_css).',' : '') . '
-                iframe: true,
-                iframeBaseUrl: "'.JURI::root().'",
-            });
+            var jodit = new Jodit("#'.$id.'", '.json_encode($options).');
         </script>';
 
 		return $editor . $script . $this->_displayButtons($id, $buttons, $asset, $author);
