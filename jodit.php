@@ -163,8 +163,21 @@ class plgEditorJodit extends JPlugin {
 			JFactory::getApplication()->enqueueMessage(JText::_('JERROR_AN_ERROR_HAS_OCCURRED'), 'error');
 			return;
 		}
+        
+        $language = strtolower(substr(JFactory::getLanguage()->getTag(), 0, 2));
+        $buttons = explode(' ', $this->params->get('buttons', 'source | bold italic | ul ol | font fontsize brush paragraph | image table link | left center right justify | undo redo | hr eraser fullsize about'));
 
         $options = (object)array(
+            'buttons' => $buttons,
+            'enter' => $this->params->get('enter', 'p'),
+            'toolbar' => (boolean)$this->params->get('toolbar', 1),
+            'language' => $language,
+            'direction' => $this->params->get('direction', 'ltr'),
+            'height' => is_numeric($this->params->get('height', 'auto')) ? (int)$this->params->get('height') : $this->params->get('height', 'auto'),
+            'image_default_width' => is_numeric($this->params->get('image_default_width', 300)) ? (int)$this->params->get('image_default_width', 300) : $this->params->get('image_default_width', 300),
+            'minHeight' => (int)$this->params->get('min_height', 100),
+            'spellcheck' => (boolean)$this->params->get('spellcheck', 1),
+            'defaultMode' => (int)$this->params->get('default_mode', 1),
             'iframe' => true,
             'iframeBaseUrl' => JURI::root(),
             'iframeCSSLinks' => array(),
