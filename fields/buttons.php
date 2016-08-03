@@ -74,8 +74,10 @@ class JFormFieldButtons extends JFormField{
                 cursor:pointer;
             }
             .jodit_btn:hover {
-                background: #ddf3ce;
+                background: url('.JURI::root().'plugins/editors/jodit/fields/grippy_large.png) no-repeat 1px 50%;
+                background-color: #ddf3ce;
                 color: #979595;
+                cursor: url('.JURI::root().'plugins/editors/jodit/fields/openhand.cur) 7 5, default;
             }
             .jodit_btn:active {
                 cursor: move;
