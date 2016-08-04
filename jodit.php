@@ -238,7 +238,7 @@ class plgEditorJodit extends JPlugin {
         '</textarea>';
 
         $script = '<script>
-            var jodit = new Jodit("#'.$id.'", '.json_encode($options).');
+            var jodit = new Jodit(document.getElementById("'.$id.'"), '.json_encode($options).');
         </script>';
 
 		return $editor . $script . $this->_displayButtons($id, $buttons, $asset, $author);
