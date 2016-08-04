@@ -168,6 +168,7 @@ class plgEditorJodit extends JPlugin {
         $buttons = explode(' ', $this->params->get('buttons', 'source | bold italic | ul ol | font fontsize brush paragraph | image table link | left center right justify | undo redo | hr eraser fullsize about'));
 
         $options = (object)array(
+            'theme' => $this->params->get('theme', 'default'),
             'saveModeInCookie' => (boolean)$this->params->get('save_mode_in_cookie', 1),
             'buttons' => $buttons,
             'enter' => $this->params->get('enter', 'p'),
