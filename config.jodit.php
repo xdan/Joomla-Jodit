@@ -15,21 +15,10 @@ $config = array(
 );
 
 function JoditCheckPermissions() {
-    $app = JFactory::getApplication('administrator');
+    $app = JFactory::getApplication(isset($_REQUEST['isadmin']) && (int)$_REQUEST['isadmin'] ? 'administrator' : 'site');
     $user = JFactory::getUser();
-    //$app->dispatch();
-    //unset($user);
-    //print_r(get_class_methods($user));
-    //$access = $user->id && $user->authorise('core.edit', 'com_content');
-
-    if (!$access) {
-        $app = JFactory::getApplication('site');
-        //$app->initialise();
-        $user = JFactory::getUser();
-        echo $user->id;
-        $access = $user->id && $user->authorise('core.edit', 'com_content');
-        exit;
-    }
+    
+    $access = $user->id && $user->authorise('core.edit', 'com_content');
 
     if (!$access) {
         trigger_error('You are not authorized!', E_USER_WARNING);
