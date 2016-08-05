@@ -184,11 +184,11 @@ class plgEditorJodit extends JPlugin {
             'iframeBaseUrl' => JURI::root(),
             'iframeCSSLinks' => array(),
             'uploader' => array(
-                'url' => JURI::root() . 'plugins/editors/jodit/jodit-connectors/index.php?action=upload', 
+                'url' => JURI::root() . 'plugins/editors/jodit/jodit-connectors/index.php?action=upload&isadmin=' . JFactory::getApplication()->isAdmin() ? 1 : 0,
             ),
             'filebrowser' => array(
                 'ajax' => array(
-                    'url' => JURI::root() . 'plugins/editors/jodit/jodit-connectors/index.php?action=upload', 
+                    'url' => JURI::root() . 'plugins/editors/jodit/jodit-connectors/index.php?isadmin=' . JFactory::getApplication()->isAdmin() ? 1 : 0, 
                 ),
             ),
         );
