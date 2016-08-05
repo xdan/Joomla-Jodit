@@ -12,10 +12,11 @@ $config = array(
     'debug' => false,
 );
 
-$app = JFactory::getApplication('site');
+$app = JFactory::getApplication('administrator');
 
 function JoditCheckPermissions() {
     $user = JFactory::getUser();
+
     if (!$user->id || !$user->authorise('core.edit', 'com_content')) {
         trigger_error('You are not authorized!', E_USER_WARNING);
     }
