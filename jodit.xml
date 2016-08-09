@@ -13,7 +13,7 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail></authorEmail>
 	<authorUrl></authorUrl>
-	<version>2.4.12</version>
+	<version>2.4.13</version>
 	<description>
 	<![CDATA[
 		<p>Jodit Editor</p>
@@ -55,6 +55,17 @@
 					>
 					<option value="default">Default</option>
 					<option value="dark">Dark</option>
+				</field>
+                <field
+					name="toolbarbuttonsize"
+					type="list"
+					label="PLG_JODIT_FIELD_TOOLBARBUTTONSIZE_LABEL"
+					description="PLG_JODIT_FIELD_TOOLBARBUTTONSIZE_DESC"
+					default="middle"
+					>
+					<option value="small">Small</option>
+					<option value="middle">Middle</option>
+					<option value="large">Large</option>
 				</field>
                 <field
 					name="content_css"
