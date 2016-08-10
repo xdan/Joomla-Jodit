@@ -5,8 +5,8 @@
         <description>Jodit Editor</description>
         <element>jodit</element>
         <type>plugin</type>
-        <version>2.4.18</version>
-        <infourl title="Joomla Jodit Editor v.2.4.18">http://xdsoft.net/jodit/doc/index.html#2.4.18</infourl>
+        <version>2.4.19</version>
+        <infourl title="Joomla Jodit Editor v.2.4.19">http://xdsoft.net/jodit/doc/index.html#2.4.19</infourl>
         <downloads>
             <downloadurl type="upgrade" format="zip">http://xdsoft.net/jodit/release/joomla.zip</downloadurl>
         </downloads>
