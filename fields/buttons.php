@@ -38,7 +38,7 @@ class JFormFieldButtons extends JFormField{
                 $k++;
             }
             $toolbar_buttons[$btn] = '<div id="jodit_btn_' . $btn . '" class="jodit_btn">
-                <input data-name="' . $btn . '" ' . ((in_array($btn, $buttons)) ? 'checked="true"' : '') . ' class="hasTooltip" title="'.htmlspecialchars(Jtext::_('PLG_JODIT_FIELD_BUTTON_' . strtoupper($btn) . '_DESC')).'" type="checkbox"/><span><i class="icon icon-' . $btn . '"></i>' . Jtext::_('PLG_JODIT_FIELD_BUTTON_' . strtoupper($btn) . '_LABEL') . '</span>
+                <input data-name="' . $btn . '" ' . ((in_array($btn, $buttons)) ? 'checked="true"' : '') . ' class="hasTooltip" title="'.htmlspecialchars(Jtext::_('PLG_JODIT_FIELD_BUTTON_' . strtoupper($btn) . '_DESC')).'" type="checkbox"/><span><svg class="jodit_icon jodit_icon_' .$btn. '" ><use xlink:href="' .JURI::current(). '#jodit-' .$btn. '" /></svg>' . Jtext::_('PLG_JODIT_FIELD_BUTTON_' . strtoupper($btn) . '_LABEL') . '</span>
             </div>';
         }
 
@@ -189,6 +189,7 @@ class JFormFieldButtons extends JFormField{
                             recalc();
                         }
                     });
+                icons = new Jodit.modules.Icons();
             }(jQuery || Jodit.modules.Dom))
         </script>';
 
