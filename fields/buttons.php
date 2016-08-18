@@ -37,8 +37,8 @@ class JFormFieldButtons extends JFormField{
                 $default[$i] = $btn = 'separator' . $k;
                 $k++;
             }
-            $toolbar_buttons[$btn] = '<div id="jodit_btn_' . $btn . '" class="jodit_btn">
-                <input data-name="' . $btn . '" ' . ((in_array($btn, $buttons)) ? 'checked="true"' : '') . ' class="hasTooltip" title="'.htmlspecialchars(Jtext::_('PLG_JODIT_FIELD_BUTTON_' . strtoupper($btn) . '_DESC')).'" type="checkbox"/><span><svg class="jodit_icon jodit_icon_' .$btn. '" ><use xlink:href="' .JURI::current(). '#jodit-' .$btn. '" /></svg>' . Jtext::_('PLG_JODIT_FIELD_BUTTON_' . strtoupper($btn) . '_LABEL') . '</span>
+            $toolbar_buttons[$btn] = '<div id="jodit_buttons_' . $btn . '" class="jodit_buttons">
+                <input data-name="' . $btn . '" ' . ((in_array($btn, $buttons)) ? 'checked="true"' : '') . ' class="hasTooltip" title="'.htmlspecialchars(Jtext::_('PLG_JODIT_FIELD_BUTTON_' . strtoupper($btn) . '_DESC')).'" type="checkbox"/><span><i data-btn="'.$btn.'" class="jodit_icon_faik"></i>' . Jtext::_('PLG_JODIT_FIELD_BUTTON_' . strtoupper($btn) . '_LABEL') . '</span>
             </div>';
         }
 
@@ -68,7 +68,7 @@ class JFormFieldButtons extends JFormField{
                 -ms-user-select:none;
                 user-select:none
             }
-            .jodit_btn {
+            .jodit_buttons {
                 padding:0 10px;
                 background: #e6f1de;
                 border-bottom: 1px solid #d6d6d6;
@@ -78,28 +78,29 @@ class JFormFieldButtons extends JFormField{
                 width: 500px;
                 cursor:pointer;
             }
-            .jodit_btn:hover {
+            .jodit_buttons:hover {
                 background: url('.JURI::root().'plugins/editors/jodit/fields/grippy_large.png) no-repeat 1px 50%;
                 background-color: #ddf3ce;
                 color: #979595;
                 cursor: url('.JURI::root().'plugins/editors/jodit/fields/openhand.cur) 7 5, default;
             }
-            .jodit_btn:active {
+            .jodit_buttons:active {
                 cursor: move;
             }
-            .jodit_btn.dragged {
+            .jodit_buttons.dragged {
                 cursor: move;
                 background: #bbd8a5;
                 color: #fff;
             }
-            .jodit_btn input{
+            .jodit_buttons input{
                 vertical-align: middle;
                 margin:0 5px 0 0;
             }
-            .jodit_btn span i{
+            .jodit_buttons span svg{
                 vertical-align: text-bottom !important;
+                margin-right: 10px;
             }
-            .jodit_btn span{
+            .jodit_buttons span{
                 display:inline-block;
             }
         </style>';
@@ -116,7 +117,7 @@ class JFormFieldButtons extends JFormField{
                         clearTimeout(timeout);
                         timeout = setTimeout(function () {
                             var result = [], value, input;
-                            box.find(".jodit_btn").each(function () {
+                            box.find(".jodit_buttons").each(function () {
                                 input = $(this).find("input");
                                 if (input[0].checked) {
                                     value = input.data("name");
@@ -138,14 +139,14 @@ class JFormFieldButtons extends JFormField{
                     case "select_default":
                         box.find("input").attr("checked", true);
                         for (i = 0; i < default_values.length; i += 1) {
-                            box.append($("#jodit_btn_" + default_values[i]));
+                            box.append($("#jodit_buttons_" + default_values[i]));
                         }
                         break;
                     }
                     recalc();
                 });
 
-                box.find(".jodit_btn")
+                box.find(".jodit_buttons")
                     .on("click", function (e) {
                         var input = $(this).find("input"), target = e.target;
 
@@ -184,12 +185,15 @@ class JFormFieldButtons extends JFormField{
                     .on("mouseup", function () {
                         if (drag) {
                             drag = false;
-                            box.find(".jodit_btn")
+                            box.find(".jodit_buttons")
                                 .removeClass("dragged")
                             recalc();
                         }
                     });
                 icons = new Jodit.modules.Icons();
+                $(".jodit_icon_faik").each(function () {
+                    $(this).replaceWith(icons.getSVGIcon($(this).data("btn")));
+                });
             }(jQuery || Jodit.modules.Dom))
         </script>';
 
