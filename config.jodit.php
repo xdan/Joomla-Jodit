@@ -1,4 +1,8 @@
 <?php
+if (!class_exists('JoditFileBrowser')) {
+    die('Access denied!');
+}
+
 define('_JEXEC', 1);
 define('DS', DIRECTORY_SEPARATOR );
 define('JPATH_BASE', realpath(realpath(__DIR__).'/../../../')); // replace to valid path

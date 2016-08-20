@@ -1,6 +1,6 @@
 {
 	"name" : "joomla-jodit",
-	"version" : "2.5.13",
+	"version" : "2.5.14",
 	"description" : "Jodit is awesome and usefully wysiwyg editor with filebrowser",
 	"main" : "jodit.php",
 	"scripts" : {
