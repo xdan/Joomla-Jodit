@@ -15,20 +15,21 @@ require_once JPATH_BASE . DS . 'libraries' . DS . 'joomla' . DS . 'factory.php';
 
 $config = $saveconfig;
 
+$app = JFactory::getApplication(isset($_REQUEST['isadmin']) && (int)$_REQUEST['isadmin'] ? 'administrator' : 'site');
+$user = JFactory::getUser();
 $plugin = JPluginHelper::getPlugin('editors', 'jodit');
 $params = new JRegistry($plugin->params);
 
 $config['root'] = JPATH_BASE.'/images/';
 $config['baseurl'] = '/images/';
 $config['extensions'] = array('jpg', 'png', 'gif', 'jpeg');
-$config['debug'] = $params->get('debug', $config['debug']);
-$config['createThumb'] = $params->get('create_thumb', $config['createThumb']);
+$config['debug'] = (boolean)$params->get('debug', $config['debug']);
+$config['createThumb'] = (boolean)$params->get('create_thumb', $config['createThumb']);
 $config['thumbFolderName'] = $params->get('thumb_folder_name', $config['thumbFolderName']);
 
 function JoditCheckPermissions() {
-    $app = JFactory::getApplication(isset($_REQUEST['isadmin']) && (int)$_REQUEST['isadmin'] ? 'administrator' : 'site');
     $user = JFactory::getUser();
-    
+
     $access = $user->id && $user->authorise('core.edit', 'com_content');
 
     if (!$access) {
