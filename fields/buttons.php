@@ -3,8 +3,9 @@
  * @copyright	Copyright (c) 2016 editors. All rights reserved.
  * @license		http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  */
-
+defined( '_JEXEC' ) or die( 'Restricted access' ); 
 defined('JPATH_BASE') or die;
+
 jimport('joomla.form.helper');
 
 class JFormFieldButtons extends JFormField{
