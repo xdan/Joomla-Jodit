@@ -12,14 +12,13 @@ if (!class_exists('JoditFileBrowser')) {
 }
 
 define('_JEXEC', 1);
-define('DS', DIRECTORY_SEPARATOR );
 define('JPATH_BASE', realpath(realpath(__DIR__).'/../../../')); // replace to valid path
 
 $saveconfig = array_merge(array(), $config); //save $config because in framework.php it will overwride
 
 require_once JPATH_BASE . '/includes/defines.php';
 require_once JPATH_BASE . '/includes/framework.php';
-require_once JPATH_BASE . DS . 'libraries' . DS . 'joomla' . DS . 'factory.php';
+require_once JPATH_BASE . DIRECTORY_SEPARATOR . 'libraries' . DIRECTORY_SEPARATOR . 'joomla' . DIRECTORY_SEPARATOR . 'factory.php';
 
 $config = $saveconfig;
 

@@ -1,10 +1,11 @@
 {
 	"name" : "joomla-jodit",
-	"version" : "2.5.32",
+	"version" : "2.5.33",
 	"description" : "Jodit is awesome and usefully wysiwyg editor with filebrowser",
 	"main" : "jodit.php",
 	"scripts" : {
-		"update" : "git submodule foreach git reset --hard HEAD && git submodule foreach  git pull origin master && rm -rf jodit-connectors/vendor/abeautifulsite/simpleimage/example || true",
+        "addcopyright": "addcopyright -f jodit-connectors/*.php jodit-connectors/vendor/*.php jodit-connectors/vendor/composer/*.php jodit-connectors/vendor/abeautifulsite/simpleimage/src/abeautifulsite/*.php -c gpl2.txt",
+		"update" : "git submodule foreach git reset --hard HEAD && git submodule foreach  git pull origin master && composer update -d ./jodit-connectors && (rm -rf jodit-connectors/vendor/abeautifulsite/simpleimage/example || true) && npm run addcopyright",
 		"github" : "npm run update && git add --all  && git commit -m \"New version %npm_package_version%. Read more http://xdsoft.net/jodit/doc/index.html#%npm_package_version% \" && git tag %npm_package_version% && git push --tags origin HEAD:master"
 	},
 	"homepage" : "http://xdsoft.net/jodit/",
@@ -20,6 +21,9 @@
 	"bugs" : {
 		"url" : "https://github.com/xdan/jodit/issues"
 	},
+    "dependencies": {
+        "addcopyright": "*"
+    },
 	"repository" : {
 		"type" : "git",
 		"url" : "https://github.com/xdan/jodit.git"
