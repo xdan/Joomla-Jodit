@@ -1,2 +1,2 @@
 # Joomla-Jodit
-Joomla Jodit editor Plugin v.2.5.35
+Joomla Jodit editor Plugin v.2.5.36
