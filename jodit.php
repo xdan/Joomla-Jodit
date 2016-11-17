@@ -37,6 +37,7 @@ class plgEditorJodit extends JPlugin {
 	 * @since  3.2
 	 */
 	protected $app = null;
+	protected $version = '2.5.41';
 
 	/**
 	 * Initialises the Editor.
@@ -47,8 +48,9 @@ class plgEditorJodit extends JPlugin {
 	 */
 	public function onInit()
 	{
-		JHtml::script($this->_basePath . '/jodit.min.js', false, false, false, false, false);
-		JHtml::stylesheet($this->_basePath . '/jodit.min.css', false, false, false, false, false);
+		
+        JHtml::script($this->_basePath . '/jodit.min.js?v=' . $this->version, false, false, false, false, false);
+		JHtml::stylesheet($this->_basePath . '/jodit.min.css?v=' . $this->version, false, false, false, false, false);
 
 		return;
 	}
@@ -168,6 +170,7 @@ class plgEditorJodit extends JPlugin {
         $buttons = explode(' ', $this->params->get('buttons', 'source | bold italic | ul ol | font fontsize brush paragraph | image table link | left center right justify | undo redo | hr eraser fullsize about'));
 
         $options = (object)array(
+            'askBeforePasteHTML' => (boolean)$this->params->get('ask_before_insert_html', true),
             'toolbarButtonSize' => $this->params->get('toolbarbuttonsize', 'middle'),
             'theme' => $this->params->get('theme', 'default'),
             'saveModeInCookie' => (boolean)$this->params->get('save_mode_in_cookie', 1),
