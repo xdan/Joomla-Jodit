@@ -37,7 +37,7 @@ class plgEditorJodit extends JPlugin {
 	 * @since  3.2
 	 */
 	protected $app = null;
-	protected $version = '2.5.41';
+	protected $version = '2.5.42';
 
 	/**
 	 * Initialises the Editor.
@@ -46,12 +46,10 @@ class plgEditorJodit extends JPlugin {
 	 *
 	 * @since   1.5
 	 */
-	public function onInit()
-	{
-		
-        JHtml::script($this->_basePath . '/jodit.min.js?v=' . $this->version, false, false, false, false, false);
-		JHtml::stylesheet($this->_basePath . '/jodit.min.css?v=' . $this->version, false, false, false, false, false);
-
+	public function onInit() {
+        $doc = jFactory::getDocument();
+        $doc->addScript(JURI::root() . $this->_basePath . '/jodit.min.js?v=' . $this->version);
+        $doc->addStyleSheet(JURI::root() . $this->_basePath . '/jodit.min.css?v=' . $this->version);
 		return;
 	}
 
