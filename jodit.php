@@ -37,7 +37,7 @@ class plgEditorJodit extends JPlugin {
 	 * @since  3.2
 	 */
 	protected $app = null;
-	protected $version = '2.5.56';
+	protected $version = '2.5.57';
 
 	/**
 	 * Initialises the Editor.
@@ -168,6 +168,7 @@ class plgEditorJodit extends JPlugin {
         $buttons = explode(' ', $this->params->get('buttons', 'source | bold italic | ul ol | font fontsize brush paragraph | image table link | left center right justify | undo redo | hr eraser fullsize about'));
 
         $options = (object)array(
+            'offsetTopForAssix' => 74, // offset by top for affix toolbar
             'askBeforePasteHTML' => (boolean)$this->params->get('ask_before_insert_html', true),
             'toolbarButtonSize' => $this->params->get('toolbarbuttonsize', 'middle'),
             'theme' => $this->params->get('theme', 'default'),
